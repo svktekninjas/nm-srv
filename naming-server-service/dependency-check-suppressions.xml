@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+   <!-- Example suppression for false positives or vulnerabilities that can't be fixed yet -->
+   <!--
+   <suppress>
+      <notes>
+         This suppresses CVE-XXXX-YYYY in the specified library which is a false positive
+         because we're not using the vulnerable functionality or have mitigated the risk.
+      </notes>
+      <cve>CVE-XXXX-YYYY</cve>
+   </suppress>
+   -->
+   
+   <!-- Add specific suppressions as needed after reviewing the dependency check report -->
+</suppressions>
