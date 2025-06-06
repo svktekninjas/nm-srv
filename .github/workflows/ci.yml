@@ -1,0 +1,255 @@
+name: Java CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: 'Deploy to production after build'
+        required: false
+        default: 'false'
+      environment:
+        description: 'Environment to use'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - test
+          - prod
+
+jobs:
+  load-env:
+    name: Load Environment Variables
+    runs-on: ubuntu-latest
+    outputs:
+      java_version: ${{ steps.set-env.outputs.java_version }}
+      maven_cli_opts: ${{ steps.set-env.outputs.maven_cli_opts }}
+      maven_goals: ${{ steps.set-env.outputs.maven_goals }}
+      docker_image_name: ${{ steps.set-env.outputs.docker_image_name }}
+      docker_file_path: ${{ steps.set-env.outputs.docker_file_path }}
+      enable_sonar_scan: ${{ steps.set-env.outputs.enable_sonar_scan }}
+      enable_dependency_check: ${{ steps.set-env.outputs.enable_dependency_check }}
+      enable_docker_scan: ${{ steps.set-env.outputs.enable_docker_scan }}
+      fail_on_vulnerability: ${{ steps.set-env.outputs.fail_on_vulnerability }}
+      version_strategy: ${{ steps.set-env.outputs.version_strategy }}
+      main_branch: ${{ steps.set-env.outputs.main_branch }}
+      aws_region: ${{ steps.set-env.outputs.aws_region }}
+      ecr_repository_uri: ${{ steps.set-env.outputs.ecr_repository_uri }}
+      sonar_project_key: ${{ steps.set-env.outputs.sonar_project_key }}
+      sonar_host_url: ${{ steps.set-env.outputs.sonar_host_url }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Load Environment Variables
+      id: set-env
+      run: |
+        ENV_FILE=".github/ENV/ci-variables.env"
+        if [ -f "$ENV_FILE" ]; then
+          echo "Loading variables from $ENV_FILE"
+          
+          # Set default values
+          JAVA_VERSION="17"
+          MAVEN_CLI_OPTS="--batch-mode --errors --fail-at-end --show-version"
+          MAVEN_GOALS="clean verify"
+          DOCKER_IMAGE_NAME="naming-server-service"
+          DOCKER_FILE_PATH="./naming-server-service/Dockerfile"
+          ENABLE_SONAR_SCAN="true"
+          ENABLE_DEPENDENCY_CHECK="true"
+          ENABLE_DOCKER_SCAN="true"
+          FAIL_ON_VULNERABILITY="true"
+          VERSION_STRATEGY="git-sha"
+          MAIN_BRANCH="main"
+          AWS_REGION="us-east-1"
+          ECR_REPOSITORY_URI="${{ secrets.ECR_REPOSITORY_URI }}"
+          SONAR_PROJECT_KEY="${{ secrets.SONAR_PROJECT_KEY }}"
+          SONAR_HOST_URL="${{ secrets.SONAR_HOST_URL }}"
+          
+          # Override with values from env file if provided
+          while IFS='=' read -r key value || [ -n "$key" ]; do
+            # Skip comments and empty lines
+            if [[ $key =~ ^#.*$ || -z $key ]]; then
+              continue
+            fi
+            
+            # Remove leading/trailing whitespace
+            key=$(echo $key | xargs)
+            value=$(echo $value | xargs)
+            
+            # Skip if empty value
+            if [[ -z $value ]]; then
+              continue
+            fi
+            
+            # Set variables based on key
+            case $key in
+              JAVA_VERSION) JAVA_VERSION="$value" ;;
+              MAVEN_CLI_OPTS) MAVEN_CLI_OPTS="$value" ;;
+              MAVEN_GOALS) MAVEN_GOALS="$value" ;;
+              DOCKER_IMAGE_NAME) DOCKER_IMAGE_NAME="$value" ;;
+              DOCKER_FILE_PATH) DOCKER_FILE_PATH="$value" ;;
+              ENABLE_SONAR_SCAN) ENABLE_SONAR_SCAN="$value" ;;
+              ENABLE_DEPENDENCY_CHECK) ENABLE_DEPENDENCY_CHECK="$value" ;;
+              ENABLE_DOCKER_SCAN) ENABLE_DOCKER_SCAN="$value" ;;
+              FAIL_ON_VULNERABILITY) FAIL_ON_VULNERABILITY="$value" ;;
+              VERSION_STRATEGY) VERSION_STRATEGY="$value" ;;
+              MAIN_BRANCH) MAIN_BRANCH="$value" ;;
+              AWS_REGION) AWS_REGION="$value" ;;
+              ECR_REPOSITORY_URI) ECR_REPOSITORY_URI="$value" ;;
+              SONAR_PROJECT_KEY) SONAR_PROJECT_KEY="$value" ;;
+              SONAR_HOST_URL) SONAR_HOST_URL="$value" ;;
+            esac
+          done < "$ENV_FILE"
+        else
+          echo "Environment file not found, using default values"
+        fi
+        
+        # Export variables as outputs
+        echo "java_version=$JAVA_VERSION" >> $GITHUB_OUTPUT
+        echo "maven_cli_opts=$MAVEN_CLI_OPTS" >> $GITHUB_OUTPUT
+        echo "maven_goals=$MAVEN_GOALS" >> $GITHUB_OUTPUT
+        echo "docker_image_name=$DOCKER_IMAGE_NAME" >> $GITHUB_OUTPUT
+        echo "docker_file_path=$DOCKER_FILE_PATH" >> $GITHUB_OUTPUT
+        echo "enable_sonar_scan=$ENABLE_SONAR_SCAN" >> $GITHUB_OUTPUT
+        echo "enable_dependency_check=$ENABLE_DEPENDENCY_CHECK" >> $GITHUB_OUTPUT
+        echo "enable_docker_scan=$ENABLE_DOCKER_SCAN" >> $GITHUB_OUTPUT
+        echo "fail_on_vulnerability=$FAIL_ON_VULNERABILITY" >> $GITHUB_OUTPUT
+        echo "version_strategy=$VERSION_STRATEGY" >> $GITHUB_OUTPUT
+        echo "main_branch=$MAIN_BRANCH" >> $GITHUB_OUTPUT
+        echo "aws_region=$AWS_REGION" >> $GITHUB_OUTPUT
+        echo "ecr_repository_uri=$ECR_REPOSITORY_URI" >> $GITHUB_OUTPUT
+        echo "sonar_project_key=$SONAR_PROJECT_KEY" >> $GITHUB_OUTPUT
+        echo "sonar_host_url=$SONAR_HOST_URL" >> $GITHUB_OUTPUT
+
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    needs: load-env
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Required for SonarQube to get proper SCM history
+    
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: ${{ needs.load-env.outputs.java_version }}
+        distribution: 'temurin'
+        cache: maven
+    
+    - name: Cache Maven packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+    
+    - name: Build with Maven
+      run: |
+        cd naming-server-service
+        mvn ${{ needs.load-env.outputs.maven_cli_opts }} ${{ needs.load-env.outputs.maven_goals }}
+    
+    - name: Run SonarQube Analysis
+      if: needs.load-env.outputs.enable_sonar_scan == 'true'
+      run: |
+        cd naming-server-service
+        mvn sonar:sonar \
+          -Dsonar.projectKey=${{ needs.load-env.outputs.sonar_project_key }} \
+          -Dsonar.host.url=${{ needs.load-env.outputs.sonar_host_url }} \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Run OWASP Dependency Check
+      if: needs.load-env.outputs.enable_dependency_check == 'true'
+      run: |
+        cd naming-server-service
+        mvn org.owasp:dependency-check-maven:check
+    
+    - name: Upload Test and Analysis Reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-reports
+        path: |
+          naming-server-service/target/surefire-reports
+          naming-server-service/target/dependency-check-report.html
+
+    - name: Archive JAR file
+      uses: actions/upload-artifact@v3
+      with:
+        name: application-jar
+        path: naming-server-service/target/*.jar
+
+  docker-build:
+    runs-on: ubuntu-latest
+    needs: [load-env, build]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Download JAR artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: application-jar
+          path: naming-server-service/target/
+        
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ needs.load-env.outputs.aws_region }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Generate Docker Image Tag
+        id: docker-tag
+        run: |
+          if [[ "${{ needs.load-env.outputs.version_strategy }}" == "git-sha" ]]; then
+            SHORT_SHA=$(git rev-parse --short HEAD)
+            echo "IMAGE_TAG=${SHORT_SHA}" >> $GITHUB_ENV
+          else
+            echo "IMAGE_TAG=latest" >> $GITHUB_ENV
+          fi
+          echo "FULL_IMAGE_NAME=${{ needs.load-env.outputs.ecr_repository_uri }}:${IMAGE_TAG}" >> $GITHUB_ENV
+          
+      - name: Build Docker Image for ECR
+        run: |
+          docker build -t ${{ env.FULL_IMAGE_NAME }} -f ${{ needs.load-env.outputs.docker_file_path }} .
+          docker images
+          
+      - name: Run Trivy Scan on Docker Image
+        if: needs.load-env.outputs.enable_docker_scan == 'true'
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.FULL_IMAGE_NAME }}
+          format: 'table'
+          severity: 'CRITICAL,HIGH,MEDIUM'
+          exit-code: ${{ needs.load-env.outputs.fail_on_vulnerability == 'true' && '1' || '0' }}
+          vuln-type: 'os,library'
+          scanners: 'vuln'   
+
+      - name: Push the Docker Image
+        run: |
+          docker push ${{ env.FULL_IMAGE_NAME }}
+          
+      - name: Generate Image Info
+        if: success()
+        run: |
+          echo "::set-output name=image::${{ env.FULL_IMAGE_NAME }}"
+          echo "::set-output name=timestamp::$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          
+      - name: Send Notification on Success
+        if: success()
+        run: |
+          echo "Successfully built and pushed image ${{ env.FULL_IMAGE_NAME }}"
+          # Add notification mechanism here if needed (e.g., Slack, email)
