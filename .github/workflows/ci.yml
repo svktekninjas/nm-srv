@@ -44,7 +44,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@latest
+      uses: actions/checkout@v4
       
     - name: Load Environment Variables
       id: set-env
