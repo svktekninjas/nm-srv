@@ -40,6 +40,7 @@ jobs:
       aws_region: ${{ steps.set-env.outputs.aws_region }}
       ecr_repository_uri: ${{ steps.set-env.outputs.ecr_repository_uri }}
       sonar_project_key: ${{ steps.set-env.outputs.sonar_project_key }}
+      sonar_organization: ${{ steps.set-env.outputs.sonar_organization }}
       sonar_host_url: ${{ steps.set-env.outputs.sonar_host_url }}
 
     steps:
@@ -49,6 +50,11 @@ jobs:
     - name: Load Environment Variables
       id: set-env
       run: |
+        # Debug - list files to verify paths
+        echo "Current directory: $(pwd)"
+        ls -la
+        ls -la .github/workflows/
+
         ENV_FILE=".github/ENV/ci-variables.env"
         if [ -f "$ENV_FILE" ]; then
           echo "Loading variables from $ENV_FILE"
@@ -67,8 +73,21 @@ jobs:
           MAIN_BRANCH="main"
           AWS_REGION="us-east-1"
           ECR_REPOSITORY_URI="${{ secrets.ECR_REPOSITORY_URI }}"
-          SONAR_PROJECT_KEY="${{ secrets.SONAR_PROJECT_KEY }}"
-          SONAR_HOST_URL="${{ secrets.SONAR_HOST_URL }}"
+          # Read Sonar properties from properties file
+          SONAR_PROPERTIES_FILE=".github/workflows/sonar-project.properties"
+          if [ -f "$SONAR_PROPERTIES_FILE" ]; then
+            echo "Loading Sonar properties from $SONAR_PROPERTIES_FILE"
+            SONAR_PROJECT_KEY=$(grep "^sonar.projectKey=" "$SONAR_PROPERTIES_FILE" | cut -d'=' -f2)
+            SONAR_ORGANIZATION=$(grep "^sonar.organization=" "$SONAR_PROPERTIES_FILE" | cut -d'=' -f2)
+            SONAR_HOST_URL="https://sonarcloud.io"
+            echo "Found project key: $SONAR_PROJECT_KEY"
+            echo "Found organization: $SONAR_ORGANIZATION"
+          else
+            echo "Sonar properties file not found, using default values"
+            SONAR_PROJECT_KEY="svktekninjas_nm-srv"
+            SONAR_ORGANIZATION="svktek"
+            SONAR_HOST_URL="https://sonarcloud.io"
+          fi
           
           # Override with values from env file if provided
           while IFS='=' read -r key value || [ -n "$key" ]; do
@@ -124,6 +143,7 @@ jobs:
         echo "aws_region=$AWS_REGION" >> $GITHUB_OUTPUT
         echo "ecr_repository_uri=$ECR_REPOSITORY_URI" >> $GITHUB_OUTPUT
         echo "sonar_project_key=$SONAR_PROJECT_KEY" >> $GITHUB_OUTPUT
+        echo "sonar_organization=$SONAR_ORGANIZATION" >> $GITHUB_OUTPUT
         echo "sonar_host_url=$SONAR_HOST_URL" >> $GITHUB_OUTPUT
 
   build:
@@ -160,8 +180,13 @@ jobs:
       if: needs.load-env.outputs.enable_sonar_scan == 'true'
       run: |
         cd naming-server-service
+        # Copy sonar-project.properties if it exists in the .github/workflows directory
+        if [ -f "../.github/workflows/sonar-project.properties" ]; then
+          cp ../.github/workflows/sonar-project.properties .
+        fi
+        # Run sonar with properties file
         mvn sonar:sonar \
-          -Dsonar.projectKey=${{ needs.load-env.outputs.sonar_project_key }} \
+          -Dsonar.organization=${{ needs.load-env.outputs.sonar_organization }} \
           -Dsonar.host.url=${{ needs.load-env.outputs.sonar_host_url }} \
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
       env:
