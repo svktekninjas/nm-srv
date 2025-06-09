@@ -1,0 +1,354 @@
+Load Environment Variables	UNKNOWN STEP	﻿2025-06-06T19:59:24.8107207Z Current runner version: '2.325.0'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8134201Z ##[group]Operating System
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8134995Z Ubuntu
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8135532Z 24.04.2
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8136027Z LTS
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8136453Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8137003Z ##[group]Runner Image
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8137586Z Image: ubuntu-24.04
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8138106Z Version: 20250602.3.0
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8139148Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250602.3/images/ubuntu/Ubuntu2404-Readme.md
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8140489Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250602.3
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8141571Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8142038Z ##[group]Runner Image Provisioner
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8142739Z 2.0.437.1
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8143165Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8144219Z ##[group]GITHUB_TOKEN Permissions
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8146053Z Contents: read
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8146604Z Metadata: read
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8147362Z Packages: read
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8148250Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8150331Z Secret source: Actions
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8151153Z Prepare workflow directory
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8466842Z Prepare all required actions
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:24.8511441Z Getting action download info
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.2655878Z ##[group]Download immutable action package 'actions/checkout@v4'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.2656845Z Version: 4.2.2
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.2657947Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.2659047Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.2659744Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.4437383Z Complete job name: Load Environment Variables
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5215649Z ##[group]Run actions/checkout@v4
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5216467Z with:
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5216871Z   repository: svktekninjas/nm-srv
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5217513Z   token: ***
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5217953Z   ssh-strict: true
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5218397Z   ssh-user: git
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5218862Z   persist-credentials: true
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5219348Z   clean: true
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5219765Z   sparse-checkout-cone-mode: true
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5220237Z   fetch-depth: 1
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5220609Z   fetch-tags: false
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5221170Z   show-progress: true
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5221564Z   lfs: false
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5221926Z   submodules: false
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5222318Z   set-safe-directory: true
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.5222981Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.7703009Z Syncing repository: svktekninjas/nm-srv
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.7704868Z ##[group]Getting Git version info
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.7705594Z Working directory is '/home/runner/work/nm-srv/nm-srv'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.7706660Z [command]/usr/bin/git version
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.7821523Z git version 2.49.0
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.7854805Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.7871677Z Temporarily overriding HOME='/home/runner/work/_temp/a3ebdd34-33a2-416a-9c29-982152bfabd4' before making global git config changes
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.7874521Z Adding repository directory to the temporary git global config as a safe directory
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.7885576Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/nm-srv/nm-srv
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.7926655Z Deleting the contents of '/home/runner/work/nm-srv/nm-srv'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.7931645Z ##[group]Initializing the repository
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.7936781Z [command]/usr/bin/git init /home/runner/work/nm-srv/nm-srv
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8014390Z hint: Using 'master' as the name for the initial branch. This default branch name
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8015510Z hint: is subject to change. To configure the initial branch name to use in all
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8016479Z hint: of your new repositories, which will suppress this warning, call:
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8017182Z hint:
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8017704Z hint: 	git config --global init.defaultBranch <name>
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8018318Z hint:
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8018875Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8020109Z hint: 'development'. The just-created branch can be renamed via this command:
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8020828Z hint:
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8021382Z hint: 	git branch -m <name>
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8022777Z Initialized empty Git repository in /home/runner/work/nm-srv/nm-srv/.git/
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8035809Z [command]/usr/bin/git remote add origin https://github.com/svktekninjas/nm-srv
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8073439Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8074854Z ##[group]Disabling automatic garbage collection
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8078389Z [command]/usr/bin/git config --local gc.auto 0
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8109275Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8110643Z ##[group]Setting up auth
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8117420Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8149783Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8490138Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8522296Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8759438Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8812256Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8814824Z ##[group]Fetching the repository
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:25.8826208Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ba7e59fb2ff5d1a9dbd5dbffbbba1dd0af7ec5d0:refs/remotes/origin/main
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5450340Z From https://github.com/svktekninjas/nm-srv
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5452202Z  * [new ref]         ba7e59fb2ff5d1a9dbd5dbffbbba1dd0af7ec5d0 -> origin/main
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5483798Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5485316Z ##[group]Determining the checkout info
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5487027Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5490776Z [command]/usr/bin/git sparse-checkout disable
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5532786Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5559126Z ##[group]Checking out the ref
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5562305Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5632301Z Switched to a new branch 'main'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5635647Z branch 'main' set up to track 'origin/main'.
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5641847Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5675155Z [command]/usr/bin/git log -1 --format=%H
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5697095Z ba7e59fb2ff5d1a9dbd5dbffbbba1dd0af7ec5d0
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5934010Z ##[group]Run ENV_FILE=".github/ENV/ci-variables.env"
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5935633Z [36;1mENV_FILE=".github/ENV/ci-variables.env"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5936927Z [36;1mif [ -f "$ENV_FILE" ]; then[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5938163Z [36;1m  echo "Loading variables from $ENV_FILE"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5939351Z [36;1m  [0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5940139Z [36;1m  # Set default values[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5941453Z [36;1m  JAVA_VERSION="17"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5942931Z [36;1m  MAVEN_CLI_OPTS="--batch-mode --errors --fail-at-end --show-version"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5944531Z [36;1m  MAVEN_GOALS="clean verify"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5945730Z [36;1m  DOCKER_IMAGE_NAME="naming-server-service"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5947234Z [36;1m  DOCKER_FILE_PATH="./naming-server-service/Dockerfile"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5948608Z [36;1m  ENABLE_SONAR_SCAN="true"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5949703Z [36;1m  ENABLE_DEPENDENCY_CHECK="true"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5950868Z [36;1m  ENABLE_DOCKER_SCAN="true"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5952170Z [36;1m  FAIL_ON_VULNERABILITY="true"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5953307Z [36;1m  VERSION_STRATEGY="git-sha"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5954389Z [36;1m  MAIN_BRANCH="main"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5955553Z [36;1m  AWS_REGION="us-east-1"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5956593Z [36;1m  ECR_REPOSITORY_URI=""[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5957618Z [36;1m  SONAR_PROJECT_KEY=""[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5958614Z [36;1m  SONAR_HOST_URL=""[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5959514Z [36;1m  [0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5960480Z [36;1m  # Override with values from env file if provided[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5962090Z [36;1m  while IFS='=' read -r key value || [ -n "$key" ]; do[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5963443Z [36;1m    # Skip comments and empty lines[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5964608Z [36;1m    if [[ $key =~ ^#.*$ || -z $key ]]; then[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5965717Z [36;1m      continue[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5966568Z [36;1m    fi[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5967289Z [36;1m    [0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5968151Z [36;1m    # Remove leading/trailing whitespace[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5969309Z [36;1m    key=$(echo $key | xargs)[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5970377Z [36;1m    value=$(echo $value | xargs)[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5971689Z [36;1m    [0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5972499Z [36;1m    # Skip if empty value[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5973526Z [36;1m    if [[ -z $value ]]; then[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5974535Z [36;1m      continue[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5975354Z [36;1m    fi[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5976075Z [36;1m    [0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5976871Z [36;1m    # Set variables based on key[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5977954Z [36;1m    case $key in[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5978962Z [36;1m      JAVA_VERSION) JAVA_VERSION="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5980297Z [36;1m      MAVEN_CLI_OPTS) MAVEN_CLI_OPTS="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5981765Z [36;1m      MAVEN_GOALS) MAVEN_GOALS="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5983154Z [36;1m      DOCKER_IMAGE_NAME) DOCKER_IMAGE_NAME="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5984654Z [36;1m      DOCKER_FILE_PATH) DOCKER_FILE_PATH="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5986142Z [36;1m      ENABLE_SONAR_SCAN) ENABLE_SONAR_SCAN="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5987871Z [36;1m      ENABLE_DEPENDENCY_CHECK) ENABLE_DEPENDENCY_CHECK="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5989643Z [36;1m      ENABLE_DOCKER_SCAN) ENABLE_DOCKER_SCAN="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5991425Z [36;1m      FAIL_ON_VULNERABILITY) FAIL_ON_VULNERABILITY="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5993036Z [36;1m      VERSION_STRATEGY) VERSION_STRATEGY="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5994436Z [36;1m      MAIN_BRANCH) MAIN_BRANCH="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5995758Z [36;1m      AWS_REGION) AWS_REGION="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5997159Z [36;1m      ECR_REPOSITORY_URI) ECR_REPOSITORY_URI="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.5998714Z [36;1m      SONAR_PROJECT_KEY) SONAR_PROJECT_KEY="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6000341Z [36;1m      SONAR_HOST_URL) SONAR_HOST_URL="$value" ;;[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6001641Z [36;1m    esac[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6002384Z [36;1m  done < "$ENV_FILE"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6003261Z [36;1melse[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6004319Z [36;1m  echo "Environment file not found, using default values"[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6005657Z [36;1mfi[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6006333Z [36;1m[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6007069Z [36;1m# Export variables as outputs[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6008392Z [36;1mecho "java_version=$JAVA_VERSION" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6010014Z [36;1mecho "maven_cli_opts=$MAVEN_CLI_OPTS" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6011856Z [36;1mecho "maven_goals=$MAVEN_GOALS" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6013559Z [36;1mecho "docker_image_name=$DOCKER_IMAGE_NAME" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6015392Z [36;1mecho "docker_file_path=$DOCKER_FILE_PATH" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6017203Z [36;1mecho "enable_sonar_scan=$ENABLE_SONAR_SCAN" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6019221Z [36;1mecho "enable_dependency_check=$ENABLE_DEPENDENCY_CHECK" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6021377Z [36;1mecho "enable_docker_scan=$ENABLE_DOCKER_SCAN" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6023494Z [36;1mecho "fail_on_vulnerability=$FAIL_ON_VULNERABILITY" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6025413Z [36;1mecho "version_strategy=$VERSION_STRATEGY" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6027045Z [36;1mecho "main_branch=$MAIN_BRANCH" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6028493Z [36;1mecho "aws_region=$AWS_REGION" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6030105Z [36;1mecho "ecr_repository_uri=$ECR_REPOSITORY_URI" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6032002Z [36;1mecho "sonar_project_key=$SONAR_PROJECT_KEY" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6033707Z [36;1mecho "sonar_host_url=$SONAR_HOST_URL" >> $GITHUB_OUTPUT[0m
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6102652Z shell: /usr/bin/bash -e {0}
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6103564Z ##[endgroup]
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.6204249Z Loading variables from .github/ENV/ci-variables.env
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.7200519Z Post job cleanup.
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8135193Z [command]/usr/bin/git version
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8171752Z git version 2.49.0
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8215491Z Temporarily overriding HOME='/home/runner/work/_temp/a8105c04-feee-4e2c-9371-04e8d9ef4552' before making global git config changes
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8220167Z Adding repository directory to the temporary git global config as a safe directory
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8222849Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/nm-srv/nm-srv
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8257693Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8292395Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8524550Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8543946Z http.https://github.com/.extraheader
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8556608Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8587346Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8920839Z Evaluate and set job outputs
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8935264Z Set output 'java_version'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8939210Z Set output 'maven_cli_opts'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8940893Z Set output 'maven_goals'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8942793Z Set output 'docker_image_name'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8944958Z Set output 'docker_file_path'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8946446Z Set output 'enable_sonar_scan'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8948139Z Set output 'enable_dependency_check'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8949695Z Set output 'enable_docker_scan'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8951524Z Set output 'fail_on_vulnerability'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8953171Z Set output 'version_strategy'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8954533Z Set output 'main_branch'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8956016Z Set output 'aws_region'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8958073Z Set output 'ecr_repository_uri'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8959633Z Set output 'sonar_project_key'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8961692Z Set output 'sonar_host_url'
+Load Environment Variables	UNKNOWN STEP	2025-06-06T19:59:26.8963387Z Cleaning up orphan processes
+Build and Test	UNKNOWN STEP	﻿2025-06-06T19:59:33.6682221Z Current runner version: '2.325.0'
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6719171Z ##[group]Operating System
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6720401Z Ubuntu
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6721278Z 24.04.2
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6722034Z LTS
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6722875Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6723737Z ##[group]Runner Image
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6724735Z Image: ubuntu-24.04
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6725513Z Version: 20250602.3.0
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6727431Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250602.3/images/ubuntu/Ubuntu2404-Readme.md
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6730148Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250602.3
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6731885Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6732775Z ##[group]Runner Image Provisioner
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6733794Z 2.0.437.1
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6734797Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6736525Z ##[group]GITHUB_TOKEN Permissions
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6740132Z Contents: read
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6741049Z Metadata: read
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6742181Z Packages: read
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6743266Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6746815Z Secret source: Actions
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.6748220Z Prepare workflow directory
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.7227357Z Prepare all required actions
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.7285569Z Getting action download info
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.9561386Z ##[group]Download immutable action package 'actions/checkout@v4'
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.9562346Z Version: 4.2.2
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.9563298Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.9564556Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:33.9565274Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.0499145Z ##[group]Download immutable action package 'actions/setup-java@v4'
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.0499948Z Version: 4.7.1
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.0500664Z Digest: sha256:23223d64943473efb4336f60463c0429cd4f422cd5fc6c48a5cf0d5907c1aeac
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.0501715Z Source commit SHA: c5195efecf7bdfc987ee8bae7a71cb8b11521c00
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.0502409Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.2887003Z ##[group]Download immutable action package 'actions/cache@v4'
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.2887743Z Version: 4.2.3
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.2888784Z Digest: sha256:c8a3bb963e1f1826d8fcc8d1354f0dd29d8ac1db1d4f6f20247055ae11b81ed9
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.2889781Z Source commit SHA: 5a3ec84eff668545956fd18022155c47e93e2684
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.2890442Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.3979421Z ##[group]Download immutable action package 'actions/upload-artifact@v4'
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.3980560Z Version: 4.6.2
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.3981577Z Digest: sha256:290722aa3281d5caf23d0acdc3dbeb3424786a1a01a9cc97e72f147225e37c38
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.3982977Z Source commit SHA: ea165f8d65b6e75b540449e92b4886f43607fa02
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.3983872Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6207405Z Complete job name: Build and Test
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6977416Z ##[group]Run actions/checkout@v4
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6978844Z with:
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6979519Z   fetch-depth: 0
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6980270Z   repository: svktekninjas/nm-srv
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6981397Z   token: ***
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6982079Z   ssh-strict: true
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6982786Z   ssh-user: git
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6983515Z   persist-credentials: true
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6984328Z   clean: true
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6985054Z   sparse-checkout-cone-mode: true
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6985920Z   fetch-tags: false
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6986643Z   show-progress: true
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6987353Z   lfs: false
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6988012Z   submodules: false
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6988987Z   set-safe-directory: true
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.6990070Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9449203Z Syncing repository: svktekninjas/nm-srv
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9452930Z ##[group]Getting Git version info
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9454772Z Working directory is '/home/runner/work/nm-srv/nm-srv'
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9457550Z [command]/usr/bin/git version
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9524961Z git version 2.49.0
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9555854Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9572325Z Temporarily overriding HOME='/home/runner/work/_temp/ba915043-c2a0-4d56-9406-34e34aba005a' before making global git config changes
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9577035Z Adding repository directory to the temporary git global config as a safe directory
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9586213Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/nm-srv/nm-srv
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9623627Z Deleting the contents of '/home/runner/work/nm-srv/nm-srv'
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9626479Z ##[group]Initializing the repository
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9631289Z [command]/usr/bin/git init /home/runner/work/nm-srv/nm-srv
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9718999Z hint: Using 'master' as the name for the initial branch. This default branch name
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9720862Z hint: is subject to change. To configure the initial branch name to use in all
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9722931Z hint: of your new repositories, which will suppress this warning, call:
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9724173Z hint:
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9725220Z hint: 	git config --global init.defaultBranch <name>
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9726988Z hint:
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9729193Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9731271Z hint: 'development'. The just-created branch can be renamed via this command:
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9732586Z hint:
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9733428Z hint: 	git branch -m <name>
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9735304Z Initialized empty Git repository in /home/runner/work/nm-srv/nm-srv/.git/
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9739860Z [command]/usr/bin/git remote add origin https://github.com/svktekninjas/nm-srv
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9775622Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9777007Z ##[group]Disabling automatic garbage collection
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9778954Z [command]/usr/bin/git config --local gc.auto 0
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9807188Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9808495Z ##[group]Setting up auth
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9813367Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:34.9843506Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.0194511Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.0223491Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.0445832Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.0482425Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.0483797Z ##[group]Fetching the repository
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.0495281Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3668936Z From https://github.com/svktekninjas/nm-srv
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3671194Z  * [new branch]      base         -> origin/base
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3672604Z  * [new branch]      ci_gh_action -> origin/ci_gh_action
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3675536Z  * [new branch]      main         -> origin/main
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3711631Z [command]/usr/bin/git branch --list --remote origin/main
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3734112Z   origin/main
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3743623Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3764260Z ba7e59fb2ff5d1a9dbd5dbffbbba1dd0af7ec5d0
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3770001Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3770598Z ##[group]Determining the checkout info
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3771640Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3775282Z [command]/usr/bin/git sparse-checkout disable
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3814922Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3841837Z ##[group]Checking out the ref
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3845397Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3912217Z Switched to a new branch 'main'
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3915456Z branch 'main' set up to track 'origin/main'.
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3921846Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3955005Z [command]/usr/bin/git log -1 --format=%H
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.3976600Z ba7e59fb2ff5d1a9dbd5dbffbbba1dd0af7ec5d0
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4225390Z ##[group]Run actions/setup-java@v4
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4225878Z with:
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4226306Z   java-version: 17 # Java version to use (e.g., 17)
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4226799Z   distribution: temurin
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4227188Z   cache: maven
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4227555Z   java-package: jdk
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4227937Z   check-latest: false
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4228499Z   server-id: github
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4228905Z   server-username: GITHUB_ACTOR
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4229335Z   server-password: GITHUB_TOKEN
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4229767Z   overwrite-settings: true
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4230164Z   job-status: success
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4230673Z   token: ***
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.4231030Z ##[endgroup]
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.6150681Z ##[group]Installed distributions
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.6196989Z ##[error]The string '17 # Java version to use (e.g., 17)' is not valid SemVer notation for a Java version. Please check README file for code snippets and more detailed information
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.6493091Z Post job cleanup.
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.8258065Z Post job cleanup.
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.9204241Z [command]/usr/bin/git version
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.9240213Z git version 2.49.0
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.9284113Z Temporarily overriding HOME='/home/runner/work/_temp/794531d8-9b85-4966-9ce2-02141df2a78e' before making global git config changes
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.9285861Z Adding repository directory to the temporary git global config as a safe directory
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.9290943Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/nm-srv/nm-srv
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.9326648Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.9360920Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.9590009Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.9611208Z http.https://github.com/.extraheader
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.9623265Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.9653916Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Build and Test	UNKNOWN STEP	2025-06-06T19:59:35.9980992Z Cleaning up orphan processes
