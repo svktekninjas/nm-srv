@@ -174,7 +174,7 @@ jobs:
     - name: Build with Maven
       run: |
         cd naming-server-service
-        mvn ${{ needs.load-env.outputs.maven_cli_opts }} ${{ needs.load-env.outputs.maven_goals }}
+        mvn "${{ needs.load-env.outputs.maven_cli_opts }}" "${{ needs.load-env.outputs.maven_goals }}"
     
     - name: Run SonarQube Analysis
       if: needs.load-env.outputs.enable_sonar_scan == 'true'
@@ -186,9 +186,9 @@ jobs:
         fi
         # Run sonar with properties file
         mvn sonar:sonar \
-          -Dsonar.organization=${{ needs.load-env.outputs.sonar_organization }} \
-          -Dsonar.host.url=${{ needs.load-env.outputs.sonar_host_url }} \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.organization="${{ needs.load-env.outputs.sonar_organization }}" \
+          -Dsonar.host.url="https://sonarcloud.io" \
+          -Dsonar.login="${{ secrets.SONAR_TOKEN }}"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
@@ -249,7 +249,7 @@ jobs:
           
       - name: Build Docker Image for ECR
         run: |
-          docker build -t ${{ env.FULL_IMAGE_NAME }} -f ${{ needs.load-env.outputs.docker_file_path }} .
+          docker build -t "${{ env.FULL_IMAGE_NAME }}" -f "${{ needs.load-env.outputs.docker_file_path }}" .
           docker images
           
       - name: Run Trivy Scan on Docker Image
@@ -265,7 +265,7 @@ jobs:
 
       - name: Push the Docker Image
         run: |
-          docker push ${{ env.FULL_IMAGE_NAME }}
+          docker push "${{ env.FULL_IMAGE_NAME }}"
           
       - name: Generate Image Info
         if: success()
