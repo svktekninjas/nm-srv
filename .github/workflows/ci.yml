@@ -102,6 +102,7 @@ jobs:
         fi
         # Run sonar with properties file
         mvn sonar:sonar \
+          -Dsonar.projectKey="${{ steps.sonar-props.outputs.sonar_project_key }}" \
           -Dsonar.organization="${{ steps.sonar-props.outputs.sonar_organization }}" \
           -Dsonar.host.url="${{ env.SONAR_HOST_URL }}" \
           -Dsonar.login="${{ secrets.SONAR_TOKEN }}"
