@@ -60,6 +60,18 @@
       <cve>CVE-2025-31651</cve>
    </suppress>
    
+   <suppress until="2025-09-10">
+      <notes>
+         CVE-2025-24813 (CVSS 9.8) and CVE-2025-31651 (CVSS 9.8): Tomcat WebSocket vulnerabilities.
+         JUSTIFICATION: Our application doesn't expose WebSocket endpoints to untrusted clients.
+         MITIGATION: All traffic passes through reverse proxy with request validation.
+         REMEDIATION PLAN: Upgrade to Tomcat 10.1.25+ when available.
+      </notes>
+      <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/tomcat\-embed\-websocket@.*$</packageUrl>
+      <cve>CVE-2025-24813</cve>
+      <cve>CVE-2025-31651</cve>
+   </suppress>
+   
    <!-- XStream/MXParser Vulnerabilities -->
    <suppress until="2025-09-10">
       <notes>
