@@ -195,13 +195,23 @@ jobs:
       - name: Generate Docker Image Tag
         id: docker-tag
         run: |
+          # Generate tag based on git SHA or 'latest'
           if [[ "${{ env.VERSION_STRATEGY }}" == "git-sha" ]]; then
             SHORT_SHA=$(git rev-parse --short HEAD)
+            # Set output for this step
+            echo "tag=${SHORT_SHA}" >> $GITHUB_OUTPUT
+            # Set env var for subsequent steps
             echo "IMAGE_TAG=${SHORT_SHA}" >> $GITHUB_ENV
           else
+            echo "tag=latest" >> $GITHUB_OUTPUT
             echo "IMAGE_TAG=latest" >> $GITHUB_ENV
           fi
-          echo "FULL_IMAGE_NAME=${{ secrets.ECR_REPOSITORY_URI }}:${IMAGE_TAG}" >> $GITHUB_ENV
+          
+      - name: Set Full Image Name
+        run: |
+          # Use the tag output from previous step
+          echo "FULL_IMAGE_NAME=${{ secrets.ECR_REPOSITORY_URI }}:${{ steps.docker-tag.outputs.tag }}" >> $GITHUB_ENV
+          echo "Will build image: ${{ secrets.ECR_REPOSITORY_URI }}:${{ steps.docker-tag.outputs.tag }}"
           
       - name: Build Docker Image for ECR
         run: |
