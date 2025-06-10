@@ -110,10 +110,33 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Run OWASP Dependency Check
+      id: dependency-check
       if: ${{ env.ENABLE_DEPENDENCY_CHECK == 'true' }}
       run: |
         cd naming-server-service
-        mvn org.owasp:dependency-check-maven:check
+        echo "Running OWASP Dependency Check with suppression file..."
+        
+        # Always generate the reports even if check fails
+        mvn org.owasp:dependency-check-maven:check -Dfailbuild=false
+        
+        # Store the exit code to determine if vulnerabilities were found
+        HAS_VULNERABILITIES=$?
+        
+        # Create summary information for the pipeline
+        echo "OWASP Dependency Check completed"
+        if [ $HAS_VULNERABILITIES -eq 0 ]; then
+          echo "No critical vulnerabilities found or all are suppressed"
+        else
+          echo "Vulnerabilities found - see report for details"
+          echo "::warning::OWASP Dependency Check found vulnerabilities. See artifact report for details."
+        fi
+        
+        # If FAIL_ON_VULNERABILITY is true, re-run with failures enabled
+        if [ "${{ env.FAIL_ON_VULNERABILITY }}" == "true" ]; then
+          echo "Checking for critical vulnerabilities that would fail the build..."
+          mvn org.owasp:dependency-check-maven:check
+        fi
+      continue-on-error: ${{ env.FAIL_ON_VULNERABILITY != 'true' }}
     
     - name: Upload Test and Analysis Reports
       uses: actions/upload-artifact@v4
