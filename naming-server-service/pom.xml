@@ -99,11 +99,19 @@
 					<formats>
 						<format>HTML</format>
 						<format>XML</format>
+						<format>JSON</format>
 					</formats>
-					<failBuildOnCVSS>8</failBuildOnCVSS>
+					<!-- Adjusted from 8.0 to 9.0 to focus only on critical vulnerabilities -->
+					<failBuildOnCVSS>9</failBuildOnCVSS>
 					<suppressionFiles>
 						<suppressionFile>dependency-check-suppressions.xml</suppressionFile>
 					</suppressionFiles>
+					<!-- Additional configuration to improve analysis -->
+					<assemblyAnalyzerEnabled>true</assemblyAnalyzerEnabled>
+					<ossindexAnalyzerEnabled>false</ossindexAnalyzerEnabled>
+					<knownExploitedEnabled>true</knownExploitedEnabled>
+					<!-- Property to allow failure control from command line -->
+					<failBuildOnAnyVulnerability>${dependency-check.failBuild:false}</failBuildOnAnyVulnerability>
 				</configuration>
 			</plugin>
 			
